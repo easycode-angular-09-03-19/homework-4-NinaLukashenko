@@ -32,6 +32,12 @@ export class TodosComponent implements OnInit {
       if (this.todos[i].id === todoId) {
         this.todos[i].completed = true;
       }
+
+      let alldone = true;
+      if (this.todos[i].completed === false) {
+        alldone = false;
+      }
+      this.congratulations = alldone;
     }
   }
 
