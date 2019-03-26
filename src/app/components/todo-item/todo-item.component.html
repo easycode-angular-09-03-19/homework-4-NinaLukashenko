@@ -1,0 +1,8 @@
+<div class="row" [ngClass]="{ 'bg-success': todo.completed }">
+  <div class="col-lg-2 border rounded-left">{{ todo.id }}</div>
+  <div class="col-lg-6 border">{{ todo.text }}</div>
+  <div class="col-lg-4 border rounded-right">
+    <button (click)="onClickDone()" class="btn btn-success">Done :)</button>
+    <button (click)="onClickDelete()" class="btn btn-danger">Delete</button>
+  </div>
+</div>
