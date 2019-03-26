@@ -28,17 +28,18 @@ export class TodosComponent implements OnInit {
   }
 
   onOutputEventDone(todoId) {
+    let alldone = true;
+
     for (let i = 0; i < this.todos.length; i++) {
       if (this.todos[i].id === todoId) {
         this.todos[i].completed = true;
       }
-
-      let alldone = true;
       if (this.todos[i].completed === false) {
         alldone = false;
       }
-      this.congratulations = alldone;
     }
+
+    this.congratulations = alldone;
   }
 
   onClickAllDone() {
