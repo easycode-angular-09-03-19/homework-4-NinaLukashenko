@@ -1,0 +1,33 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Add new todo</h5>
+          <form #addTodoForm="ngForm" (ngSubmit)="onFormSubmit(addTodoForm)">
+            <div
+              class="alert alert-warning"
+              *ngIf="todoText.invalid && todoText.dirty"
+            >
+              Please put correct todo description!
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="text"
+              name="text"
+              #todoText="ngModel"
+              placeholder="Todo Description"
+              required
+              maxlength="100"
+              minlength="2"
+            />
+            <button class="btn btn-success mt-3" [disabled]="todoText.invalid">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

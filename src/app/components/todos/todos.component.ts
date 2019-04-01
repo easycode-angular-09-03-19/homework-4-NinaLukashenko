@@ -8,11 +8,11 @@ import { Todo } from "../../interfaces/todo";
 })
 export class TodosComponent implements OnInit {
   todos: Todo[] = [
-    { id: 1, text: "do homework", completed: false },
-    { id: 2, text: "go to gym", completed: false },
+    { id: 5, text: "do homework", completed: false },
+    { id: 4, text: "go to gym", completed: false },
     { id: 3, text: "buy a calendar", completed: false },
-    { id: 4, text: "clean the room", completed: false },
-    { id: 5, text: "go for a walk with the dog", completed: false }
+    { id: 2, text: "clean the room", completed: false },
+    { id: 1, text: "go for a walk with the dog", completed: false }
   ];
   congratulations = false;
 
@@ -30,14 +30,13 @@ export class TodosComponent implements OnInit {
   }
 
   onOutputEventDone(todoId) {
-    let alldone = true;
-
     for (let i = 0; i < this.todos.length; i++) {
       if (this.todos[i].id === todoId) {
         this.todos[i].completed = true;
-        return;
+        break;
       }
     }
+
     this.congratulations = this.todos.every(todo => todo.completed === true);
   }
 
@@ -46,5 +45,13 @@ export class TodosComponent implements OnInit {
       todo.completed = true;
     }
     this.congratulations = true;
+  }
+
+  onOutputEventAdd(newTodoText: string) {
+    this.todos.unshift({
+      id: this.todos.length + 1,
+      text: newTodoText,
+      completed: false
+    });
   }
 }
