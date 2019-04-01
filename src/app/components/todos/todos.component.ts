@@ -49,7 +49,7 @@ export class TodosComponent implements OnInit {
 
   onOutputEventAdd(newTodoText: string) {
     this.todos.unshift({
-      id: this.todos.length + 1,
+      id: this.todos[0].id + 1,
       text: newTodoText,
       completed: false
     });
