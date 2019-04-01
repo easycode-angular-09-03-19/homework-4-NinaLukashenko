@@ -29,7 +29,9 @@ export class TodoItemComponent implements OnInit, OnDestroy {
 
   onClickDelete() {
     let sure = confirm();
-    if (sure === false) return alert("Ok, lets leave this task");
+    if (!sure) {
+      return alert("Ok, lets leave this task");
+    }
     this.cancelTask.emit(this.todo.id);
   }
 
